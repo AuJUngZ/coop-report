@@ -6,15 +6,6 @@
 
 This repository contains the LaTeX source for my Cooperative Education report, documenting my experience as a DevOps Engineer intern at SCB TechX Company.
 
-## 📚 Table of Contents
-
-- [Introduction](#introduction)
-- [Company Background](#company-background)
-- [Work Responsibilities](#work-responsibilities)
-- [Key Projects](#key-projects)
-- [Skills Developed](#skills-developed)
-- [Conclusion](#conclusion)
-
 ## 🚀 Introduction
 
 This report details my internship experience at SCB TechX, where I worked as a DevOps Engineer from 04 Jon 2024 to 25 Oct 2024. It covers my roles, responsibilities, key projects, and the invaluable skills I gained during this period.
