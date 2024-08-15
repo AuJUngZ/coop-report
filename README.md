@@ -1,6 +1,6 @@
 # 🎓 Cooperative Education Report: DevOps Engineer at SCB TechX
 
-![SCB TechX Logo](path/to/scb-techx-logo.png)
+![SCB TechX Logo](https://scbtechx.io/wp-content/uploads/2022/11/logo-vertical.png)
 
 ## 📄 Overview
 
@@ -17,11 +17,7 @@ This repository contains the LaTeX source for my Cooperative Education report, d
 
 ## 🚀 Introduction
 
-This report details my internship experience at SCB TechX, where I worked as a DevOps Engineer from [Start Date] to [End Date]. It covers my roles, responsibilities, key projects, and the invaluable skills I gained during this period.
-
-## 🏢 Company Background
-
-SCB TechX is a technology arm of Siam Commercial Bank, focused on driving digital innovation in the financial sector. Learn more about the company's mission, vision, and technological focus in this section.
+This report details my internship experience at SCB TechX, where I worked as a DevOps Engineer from 04 Jon 2024 to 25 Oct 2024. It covers my roles, responsibilities, key projects, and the invaluable skills I gained during this period.
 
 ## 💼 Work Responsibilities
 
@@ -54,4 +50,4 @@ This internship at SCB TechX has been a transformative experience, providing me 
 
 ---
 
-© [Your Name] | [Year] | [Your University]
+© [Natthaphong Thepphithak] | [2024] | [Chiang Mai University]
