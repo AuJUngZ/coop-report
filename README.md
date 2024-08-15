@@ -1,6 +1,6 @@
 # 🎓 Cooperative Education Report: DevOps Engineer at SCB TechX
 
-![SCB TechX Logo](https://scbtechx.io/wp-content/uploads/2022/11/logo-vertical.png)
+<img src="https://scbtechx.io/wp-content/uploads/2022/11/logo-vertical.png" alt="SCB TechX Logo" width="200" height="auto">
 
 ## 📄 Overview
 
