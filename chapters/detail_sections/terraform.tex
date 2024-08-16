@@ -1,0 +1,18 @@
+\subsection{Terraform}
+Terraform คือเครื่องมือหนึ่งที่ใช้ในการสร้างและจัดการโครงสร้างพื้นฐาน (Infrastructure) ด้วยแนวคิด \textit{Infrastructure as Code} (IaC) โดยที่ Terraform นั้นมีความสามารถในการ Provision และ Manage resource ต่างๆ ใน cloud provider ได้หลายแห่งเช่น AWS, Azure, และ GCP รวมถึง on-premises environments อื่นๆ ซึ่งช่วยให้การจัดการโครงสร้างพื้นฐานเป็นไปอย่างมีประสิทธิภาพและสามารถควบคุมได้ง่ายขึ้น
+
+\section*{การใช้งาน Terraform ในบริบทของ DevOps}
+ในบริบทของการใช้งานจริง Terraform มักจะถูกนำมาใช้โดยทีม DevOps เพื่อจัดการและ Provision resource ต่างๆ เช่น เซิร์ฟเวอร์, ฐานข้อมูล, Network configurations และอื่นๆ รวมถึงสามารถใช้ Terraform ในการจัดการ \textit{infrastructure lifecycle} ทั้งหมดไม่ว่าจะเป็นการสร้าง, เปลี่ยนแปลง, หรือการลบ resources ได้อย่างง่ายดายและเป็นอัตโนมัติ
+
+Terraform มีโครงสร้างที่เรียบง่ายในการใช้งาน ซึ่งประกอบด้วยการเขียน Configuration files (มักเป็นไฟล์ที่มีนามสกุล \texttt{.tf}) เพื่อกำหนด resource ที่ต้องการ ซึ่งไฟล์เหล่านี้สามารถจัดเก็บไว้ในระบบ version control (เช่น Git) เพื่อให้สามารถทำการ versioning และการทำงานร่วมกันในทีมได้
+
+นอกจากนี้ Terraform ยังมีความสามารถในการ \textit{plan} และ \textit{preview} การเปลี่ยนแปลงที่จะเกิดขึ้นกับ infrastructure ก่อนที่จะทำการ \textit{apply} จริง ทำให้สามารถลดความเสี่ยงจากการปรับเปลี่ยนโครงสร้างพื้นฐานที่อาจทำให้เกิดปัญหาได้
+
+\section*{ข้อสรุปของการใช้งาน Terraform โดย DevOps}
+\begin{itemize}
+    \item \textbf{Provisioning Resources}: ใช้ในการสร้าง resource ต่างๆ ใน cloud หรือ on-premises
+    \item \textbf{Infrastructure as Code (IaC)}: ทำให้การจัดการ infrastructure มีความคล่องตัวและควบคุมได้ง่ายขึ้น
+    \item \textbf{Automation}: ทำให้การจัดการ resource เป็นอัตโนมัติ ลดงาน manual
+    \item \textbf{Version Control}: Configuration files สามารถจัดเก็บและ versioning ได้ ทำให้การทำงานร่วมกันในทีมง่ายขึ้น
+    \item \textbf{Safety}: สามารถ \textit{plan} และ \textit{preview} การเปลี่ยนแปลงก่อน \textit{apply} จริงเพื่อลดความเสี่ยง
+\end{itemize}

@@ -1,0 +1,32 @@
+\subsection{Jenkins}
+Jenkins คือ Software (Tool) ตัวนึงที่เอามาใช้ทำ CI/CD \cite{cicd} เพื่อที่จะสามารถทำให้งานของ Dev \& Dev
+ถูกพัฒนาและส่งมอบให้กับลูกค้าได่เร็วขึ้น โดยที่ Jenkins จะช่วยในการทำงานของการ Build, Test, Deploy
+ทั้งนี้ในบริบทของการใช้งาน Jenkins ของ DevOps ในงานจริงอาจแตกต่างออกไปดังนั้นในหัวข้อนี้จะเป็นการสรุปว่า
+DevOps ใช้ Jenkins ทำอะไรบ้าง และ Jenkins ช่วยในการทำงานของ DevOps อย่างไร
+
+Jenkins จะมีหนึ่งความสามารถที่เรียกว่า Jenkins Pipeline ซึ่ง DevOps เองก็เอาความสามารถตรงนี้มาใช้ในการทำงาน
+ไม่ว่าจะเป็นการ Provisioning \& Destroying resources, Deploying โดยการเขียน Script ในรูปแบบของ Jenkinsfile
+ขึ้นมาเพื่อทำงานตามที่ต้องการเช่น Pipeline สำหรับ Deploy microserivce Pipeline นี้ก็จะทำงานสำหรับการ Deploy โดยเฉพาะ
+โดยที่เมื่อมีการสั่งให้ทำงาน Jenkins จะทำงานตามที่เขียนไว้ใน Jenkinsfile หลังจาก Jenkins ทำงานเสร็จสิ้นก็เป็นอันว่า microserivce นั้น Deploy สำเร็จ
+
+จะเห็นได้ว่าเมื่อเรามี Jenkins เข้ามาช่วยทำงานที่เป็น Routine ที่เราต้องอะไรเดิมๆซ้ำๆ ทำให้เราสามารถลดเวลาในการทำงานลงได้และยังช่วยให้
+Productivity ของทีมทำงานเพิ่มขึ้นอีกด้วย ทั้งจากที่กล่าวมาข้างต้นว่า DevOps ใช้ Jenkinsในการ Provisioning resource ต่างๆด้วยนั้นหลักการก็จะคล้ายๆกับการ Deploy
+เพียงแต่ Script ที่ใช้สั่งการนั้นจะเปลี่ยนแปลงมห้เป็น Script สำหรับ Provisioning resource แทน ทั้งนี้ทำให้เราสามารถทำงานได้เร็วขึ้นและลดความผิดพลาดในการทำงานลงได้
+
+\begin{minted}[frame=single,breaklines]{groovy}
+    pipeline {
+        agent any
+        stages {
+            stage('Build') {
+                steps {
+                    echo 'Building...'
+                }
+            }
+            stage('Deploy') {
+                steps {
+                    echo 'Deploying...'
+                }
+            }
+        }
+    }
+\end{minted}
