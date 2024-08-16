@@ -20,14 +20,6 @@ As a DevOps Engineer intern, my primary responsibilities included:
 - Monitoring system performance and resolving issues
 - Contributing to the improvement of development workflows
 
-## 🛠️ Key Projects
-
-During my internship, I contributed to several significant projects:
-
-1. **Project A**: Brief description and my role
-2. **Project B**: Brief description and my role
-3. **Project C**: Brief description and my role
-
 ## 🧠 Skills Developed
 
 Throughout this experience, I honed various technical and soft skills:
