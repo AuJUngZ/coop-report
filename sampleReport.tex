@@ -34,6 +34,8 @@
 \usepackage{pdfpages}
 \usepackage{fancyhdr}
 \usepackage{import}
+\usepackage{longtable}
+\usepackage{array}
 
 \fancyhf{}
 \fancyfoot[C]{\thepage}
@@ -99,7 +101,7 @@
 \ifproject
   \normalspacing
   \appendix
-  \include{chapters/appendix}
+  % \include{chapters/appendix}
 
   %% Display glossary (optional) -- need glossary option.
   \ifglossary\glossarypage\fi
