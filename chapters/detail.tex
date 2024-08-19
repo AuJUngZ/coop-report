@@ -38,8 +38,22 @@
 ดังนั้นรายหัวข้อต่อไปจะเป็นการนำเสนอ Task งานที่ได้รับมอบหมายให้ทำทั้งหมด เพื่อแสดงให้เห็นว่าสามารถบรรลุเป้าหมายของ TOR ได้
 
 \section{\ifenglish Responsibity Task\else งานที่ได้รับมอบหมาย\fi}
-\jiradata
-
+สืบเนื่องจากงานที่ได้รับมอบหมายนั้นจะเป็นในลักษณะ Task งาน ดังนั้นใน Section นี้จะนำเสนอ Task งานที่ได้ทั้งหมดพร้อมทั้งรายละเอียดของแต่ละ Task งานที่ได้รับมอบหมาย โดยจะแบ่งออกได้เป็น 2 กลุ่มใหญ่ ๆ คือ Task งานที่เป็น Support และ Task งานที่เป็น Develop
+\subsection{\ifenglish Support Task\else งาน Support\fi}
+\begin{itemize}
+      \item \textbf{XDO-7387 : } CBS-SunCBS | Destroy Dev02 resources \\
+            งานนี้จะต้อง Destroy Resource ที่อยู่ใน Dev02 ของ Sun-CBS Project เนื่องจากเกิดข้อผิดพลาดในการวางแผนการใช้งาน Resource ทำให้สิ้นเปลือง Cost โดยไม่จำเป็น
+      \item \textbf{XDO-7389 : } CBS-SunCBS Request to add role to managed identity \\
+            งานนี้สืบเนื่องมาจาก Dev Request ให้ DevOps เพิ่ม Role ในการ login เข้าใช้งานให้กับ Managed Identity เนื่องจาก Managed Identity ไม่มีสิทธิการใช้งานในส่วนที่ Dev ต้องการจึงต้องทำการเพิ่มให้ภายหลัง
+      \item \textbf{XDO-7394 : } CBS-MCR | Provisioning Storage Account for Dev01 and QA01 \\
+            งานนี้จะต้องทำการ Provision Storage Account ให้กับ Dev01 และ QA01 ของ MCR Project ตาม Planing ที่ได้กำหนดไว้
+      \item \textbf{XDO-7421 | XDO-7490 : } CBS-SunCBS | Request to set parameter on MySQL to Off on IaC
+            งานนี้จะต้องหาวิธีการในการปิด Parameter บางอย่างใน MySQL ซึ่งมีข้อจำจัดคือจะต้องทำผ่าน Terraform เท่านั้น
+      \item \textbf{XDO-7429 : } Require provision the existing azure manage identity to version v.1.2.1
+            งานนี้เป็นงานที่ทีม Platfrom ได้เปิดการ์ดแบบด่วนเข้ามาทีม DevOps เพิ่มให้อัพเดท Module Terraform สำหรับการสร้าง Azure Manage Identity เป็น version 1.2.1 (ล่าสุด ณ ขณะนั้น) เพื่อให้สอดคล้องกับ Pipeline ใหม่ของ Platform Team ที่จะถูกนำมาใช้งาน
+      \item \textbf{XDO-7453 : } CBS MCR | Request to grant db\_datareader access to the Azure Automation Account user-managed identity
+\end{itemize}
+\subsection{\ifenglish Develop Task\else งาน Develop\fi}
 
 \section{\ifenglish Benefit\else สวัสดิการที่ได้รับ\fi}
 บริษัท SCB TechX ให้ความสำคัญกับเรื่องของสวัสดิการที่ดีให้กับพนักงาน โดยเฉพาะนักศึกษาสหกิจศึกษาที่เข้ามาทำงานในบริษัท
