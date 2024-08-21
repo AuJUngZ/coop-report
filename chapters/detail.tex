@@ -41,28 +41,63 @@
 สืบเนื่องจากงานที่ได้รับมอบหมายนั้นจะเป็นในลักษณะ Task งาน ดังนั้นใน Section นี้จะนำเสนอ Task งานที่ได้ทั้งหมดพร้อมทั้งรายละเอียดของแต่ละ Task งานที่ได้รับมอบหมาย โดยจะแบ่งออกได้เป็น 2 กลุ่มใหญ่ ๆ คือ Task งานที่เป็น Support และ Task งานที่เป็น Develop
 \subsection{\ifenglish Support Task\else งาน Support\fi}
 \begin{itemize}
-      \item \textbf{XDO-7387 : } CBS-SunCBS | Destroy Dev02 resources \\
+      \item \textbf{XDO-7387:} CBS-SunCBS | Destroy Dev02 resources \\
             งานนี้จะต้อง Destroy Resource ที่อยู่ใน Dev02 ของ Sun-CBS Project เนื่องจากเกิดข้อผิดพลาดในการวางแผนการใช้งาน Resource ทำให้สิ้นเปลือง Cost โดยไม่จำเป็น
-      \item \textbf{XDO-7389 : } CBS-SunCBS Request to add role to managed identity \\
+      \item \textbf{XDO-7389:} CBS-SunCBS Request to add role to managed identity \\
             งานนี้สืบเนื่องมาจาก Dev Request ให้ DevOps เพิ่ม Role ในการ login เข้าใช้งานให้กับ Managed Identity เนื่องจาก Managed Identity ไม่มีสิทธิการใช้งานในส่วนที่ Dev ต้องการจึงต้องทำการเพิ่มให้ภายหลัง
-      \item \textbf{XDO-7394 : } CBS-MCR | Provisioning Storage Account for Dev01 and QA01 \\
+      \item \textbf{XDO-7394:} CBS-MCR | Provisioning Storage Account for Dev01 and QA01 \\
             งานนี้จะต้องทำการ Provision Storage Account ให้กับ Dev01 และ QA01 ของ MCR Project ตาม Planing ที่ได้กำหนดไว้
-      \item \textbf{XDO-7421 | XDO-7490 : } CBS-SunCBS | Request to set parameter on MySQL to Off on IaC
+      \item \textbf{XDO-7421 | XDO-7490:} CBS-SunCBS | Request to set parameter on MySQL to Off on IaC\\
             งานนี้จะต้องหาวิธีการในการปิด Parameter บางอย่างใน MySQL ซึ่งมีข้อจำจัดคือจะต้องทำผ่าน Terraform เท่านั้น
-      \item \textbf{XDO-7429 : } Require provision the existing azure manage identity to version v.1.2.1
+      \item \textbf{XDO-7429:} Require provision the existing azure manage identity to version v.1.2.1\\
             งานนี้เป็นงานที่ทีม Platfrom ได้เปิดการ์ดแบบด่วนเข้ามาทีม DevOps เพิ่มให้อัพเดท Module Terraform สำหรับการสร้าง Azure Manage Identity เป็น version 1.2.1 (ล่าสุด ณ ขณะนั้น) เพื่อให้สอดคล้องกับ Pipeline ใหม่ของ Platform Team ที่จะถูกนำมาใช้งาน
-      \item \textbf{XDO-7453 : } CBS MCR | Request to grant db\_datareader access to the Azure Automation Account user-managed identity
+      \item \textbf{XDO-7453:} CBS MCR | Request to grant db\_datareader access to the Azure Automation Account user-managed identity\\
+            งานนี้เป็นการเพิ่ม Role ให้กับ Azure Automation Account ที่ใช้งานใน MCR Project เพื่อให้สามารถอ่านข้อมูลจาก Database ได้ ซึ่ง Role นั้นก็อาศัยการใช้ Managed Identity ในการ Login นั้นหมายความว่า Managed Identity อันนี้จะต้องผ่านการเพิ่ม Login Role มาแล้วคล้ายๆกับงาน XDO-7389
+      \item \textbf{XDO-7604:} CBS-SunCBS | Provisioning Infrastructure resource for Migration-Dev1 (DEV03)\\
+            งานที่เป็นการ Provision Infrastructure ให้กับ Environment ใหม่ที่ชื่อว่า Dev03 ซึ่งหมายความว่า Resource ทุกอย่างไม่เคยมีมาก่อนและต้องทำการสร้างขึ้นมาใหม่ทั้งหมดประกอบไปด้วย
+            \begin{itemize}
+                  \item Storage Account
+                  \item Managed Identity
+                  \item Redis Cache
+                  \item Mysql flexible server
+                  \item CosmosDB
+                  \item Key vault
+            \end{itemize}
+            ซึ่ง Spec ของแต่ละรายการจะถูกกำหนดไว้ใน Jira Card นั้น ๆ และการสร้าง Resource ทุกอย่างนี้จะต้องผ่านการใช้ Terraform และมจะีลำดับการสร้างเพื่อไม่ให้เกิด COnflict ในการสร้าง Resource ดังนั้นเองงานนี้จึงต้องมีความเข้าใจและรอบคอบในการทำงาน
+      \item \textbf{XDO-7686 | XDO-7745:} CBS-SunCBS | Asssement of changing Storage account ADLS Gen2\\
+            งานนี้คือการเปลี่ยน Version ของ Storage Account จาก General ไปเป็น ADLS Gen2 ซึ่งเป็นการเปลี่ยนแปลงที่สำคัญเพื่อเพิ่มประสิทธิภาพในการใช้งานของ Storage Account โดยเฉพาะในการใช้งานในส่วนของ Data Lake ซึ่งการเปลี่ยนแปลง Version นั้นจะต้องเกิดการลบและสร้างขึ้นมาใหม่ทั้งหมดดังนั้นก่อนเริ่มดำเนินการจะต้องมีการ Approve จาก Dev ต้นทางซึ่งเป็นเจ้าของข้อมูลที่อยู่ใน Storage Account นั้น และงานลักษณะนี้จะต้องทำในหลายๆ Environment เช่นกัน
 \end{itemize}
+
 \subsection{\ifenglish Develop Task\else งาน Develop\fi}
+\begin{itemize}
+      \item \textbf{XDO-7483 | XDO-7484:} [ADF] Convert module from IAC next gen to xplatform multicloud\\
+            งานเป็นงานที่คล้ายๆการ Restructure IaC ของการสร้าง ADF ในโปรเจค Payment Domain ใหม่ทั้งหมดเนื่องจาก Version ปัจจุบันนั้นไม่ได้แยก Module ของแต่ละ Component ของ ADF ออกจากกันซึ่งประกอบด้วย Datafactory, Linked services, Trigger และ Pipeline ส่งผลให้เมื่อมีความต้องการในแก้ไขบางอย่างจะต้องพบเจอกับ Code ประมาณ 10,000 บรรทัด ซึ่งเป็นเรื่องที่ไม่ควรจะเกิดขึ้น ทางทีม DevOps จึงเห็นว่าเรื่องนี้ควรจะแก้ไข ซึ่งงานนี้ผมได้ทำกับพี่เลี้ยงอีกคนหนึ่ง โดยผมรับหน้าที่ในการ Restructure ส่วนของ Linked Services และ Trigger ซึ่งเป็นส่วนที่มีความซับซ้อนมากที่สุด โดยการ Restructure ครั้งนี้อ้างอิง Standard ของ Module จากฝั่ง SCB ที่ทาง DevOps ของ Techx เป็นผู้ Design ขึ้นมา ทั้งหมดใช้เวลาประมาณ 2 สัปดาห์ในการ Implement และ Test
+      \item \textbf{XDO-7561 | XDO-7737 | XDO-7742:} CBS-DAP | Enhance Azure Data factory linked services modules
+            งานนี้เป็นการเพิ่มความสร้างมาของ SFTP Linked Services ใน ADF Modole ของ SCB ให้สามารถไปดึงรหัสผ่านของ SFTP server จาก Azure keyvault ได้ โดยที่ไม่ต้องใส่รหัสผ่านลงใน Config ของ ADF โดยตรง ซึ่งเป็นเรื่องที่สำคัญในการเพิ่มความปลอดภัยในการใช้งานของ ADF และเป็นการเพิ่มความสะดวกในการใช้งานด้วย
+
+            หลังจาก Enhance ฝั่ง Module หลักไปแล้วก็ต้องไปแก้ไข Catalog ที่เรียกใช้ Module ให้รองรับการใช้งาน Feature นี้ได้เช่นกันโดย Catalog จะเป็นฝั่ง Techx ที่รับหน้าที่ดูแลให้
+
+            ทั้งนี้การที่เรา Develop Module เช่นเพิ่ม Feature ใหม่เข้ามาจะต้องมีการทำ Documentation ของวิธีการใช้ Module นั้นขึ้นมางานนี้ก็เช่นกันผมต้องทำ Documentation เพื่อสอนการใช้งาน SFTP Linked Services ที่ผมได้พัฒนาขึ้นมา ซึ่ง Document จะต้องเป็นภาษาอังกฤษ เนื่องจากมีทีมพัฒนาที่เป็นต่างชาติอยู่ใน Project นี้ด้วย
+      \item \textbf{XDO-7633:} [PYMD] Develop check appconfig for Azure Databrick
+            งานนี้เเป็น Request จาก Dev ที่มีปัญหาก่อนการ Deploy Production ว่าต้องการ Jenkins Pipeline ซักตัวหนึ่งที่ใช้ในการ Check Config ของ Microservcice ใน Release นั้น ๆ ที่กำลังจะ Deploy ว่าได้มีการ Config ถูกต้องหรือไม่ โดยที่ Config ที่ต้องการ Check นั้นจะเป็น Config ที่เกี่ยวข้องกับ Azure Databrick ซึ่งเป็น Service ที่ใช้ในการทำงานกับ Big Data ซึ่ง Config file นั้นมีอยู๋หลากหลายรูปแบบไม่ว่าจะเป็น YAML, JSON ซึ่งนั้นก็เป็นความถ้าทายของผมที่จะต้องทำให้ Check ได้ทุกรูปแบบไฟล์ โดยที่ Logic การเช็คจะเขียนด้วย Python และจะต้องทำงานผ่าน Jenkins ดังนั้นก็จะต้องมีการเขียน Jenkins Pipelien ขึ้นมาด้วยนั้นเอง
+\end{itemize}
+
+\subsection{\ifenglish POC\else งาน Prove Of Concept\fi}
+\begin{itemize}
+      \item \textbf{XDO-7423:} POC ADF Storage Event Trigger Over SFTP\\
+            งานนี้ทางทีม Dev ได้ถามาทางทีม DevOps มาว่า Trigger ชนิด Blob Event trigger ใน ADF นั้นสามารถ trigger เมื่อมี File อัพโหลดผ่าน SFTP เข้าไปได้หรือไม่ ซึงผมเองได้รับหน้าที่ในการหาคำตอบเรื่องนี้จีงได้ตอบมาว่า สามารถทำงานได้แต่ไม่ใช่ Solution ที่ทาง Microsoft ให้มา แต่จะเป็นการ Custom Header Parameter บางตัวเข้าไปใน Trigger เพื่อทำให้ Trigger เองสามารถตัวจับ Event ที่มาจาก SFTP ได้
+      \item \textbf{XDO-7743:} CBS-SunCBS | Research on Entra ID with CosmosDB for PostgreSQL
+      \item \textbf{XDO-7744 | XDO-7760:} [CBS] | POC Dynamic create trigger via ARM Template and Documentation
+\end{itemize}
 
 \section{\ifenglish Benefit\else สวัสดิการที่ได้รับ\fi}
 บริษัท SCB TechX ให้ความสำคัญกับเรื่องของสวัสดิการที่ดีให้กับพนักงาน โดยเฉพาะนักศึกษาสหกิจศึกษาที่เข้ามาทำงานในบริษัท
 ถึงแม้จะไม่ได้เป็นพนักงานประจำ แต่ก็ได้รับสวัสดิการที่ดีจากบริษัทอย่างเช่น
 \begin{itemize}
-      \item Mac Book Pro ให้ใช้งานระหว่างระยะเวลาทำงาน
+      \item MacBook Pro ให้ใช้งานตลอดระยะทำงาน ซึ่งจะเป็นเครื่องประจำของคนนั้นๆเลย
       \item อาหารเช้าและน้ำดื่มฟรีทุกวันทำงาน
       \item Account ของแหล่งเรียนรู้ออนไลน์เช่น Udemy ที่สามารถเรียน Course ไหน ๆ ก็ได้ฟรี
       \item กิจกรรมพัฒนานักศึกษาฝึกงานและสหกิจศึกษาทั้งด้าน Soft Skill และ Hard Skill ตลอดระยะเวลาทำงาน
-      \item เบี้ยเลี้ยงในการทำงาน 500 บาท/วันทำงาน
+      \item เบี้ยเลี้ยงในการทำงาน 500 บาท / วันทำงาน (ไม่นับวันมี่ลา หรือวันหยุด)
 \end{itemize}
 ทั้งนี้ทั้งหมดหมดที่กล่าวมาเป็นเพียงส่วนหนึ่งของสวัสดิการที่ได้รับจากบริษัท SCB TechX และยังมีสวัสดิการอื่น ๆ ที่ยังไม่ได้กล่าวถึง
