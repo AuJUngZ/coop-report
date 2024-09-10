@@ -70,6 +70,8 @@
             สืบเนื่องมาจากทางทีม Dev มีเป้าหมายที่จะเปลี่ยงแปลงการ Sync ของมูลของ Database ซึ่งมีอยู่จำนวนมากทั้ง On Cloud และ On Premise ซึ่งก่อนหน้านั้นใช้ Db Sync service ที่ Azure ให้มาแต่ด้วยที่มี Database หลายตัวจึงทำให้เกิดปัญหาในการใช้งาน จึงจำเป็นต้องหา Solution ใหม่ๆ โดยที่การใช้ SSIS ก็เป็นอีกหนึ่งวิธี ดังนั้นเอง DevOps จึงต้อง Support การสร้าง SSIS ขึ้นมา โดยที่การสร้างนั้นต้องคำนึงถึงเรื่อง Network และ Security ด้วยเนื่องจาก Database แต่ละตัวนั้นอยู่ใน Network ที่แตกต่างกันและเป็น Private Network ด้วย
       \item \textbf{XDO-7861 | XDO-7862: } Destroy unused resource\\
             งานนี้เป็นงานที่ต้องทำการ Destroy Resource ที่ไม่ได้ใช้งานอยู่ใน Environment ของ Project ต่าง ๆ ซึ่งเป็นเรื่องที่สำคัญในการลด Cost ของ Project และเป็นเรื่องที่ต้องทำอย่างสม่ำเสมอเพื่อไม่ให้เกิดปัญหาในการใช้งานของ Project ในอนาคต ซึ่งระหว่างการทำงานก็มีปัญหาเกิดขึ้น เรื่องจาก Terraform Provider ที่เราใช้นั้นมีการอัพเดท version ซึ่งทำให้ Module ที่เคยเขียนไว้ใน version ที่เก่ากว่าใช้งานไม่ได้ทำให้จะต้องมีการทำงานในการ Upgrade Module ที่เก่าให้ใช้งานได้กับ version ใหม่ก่อนทำการ Destroy Resource
+      \item \textbf{XDO-7909:} CBS-SunCBS | Request to add more endpoint of DFS to SunCBS storage account\\
+            สืบเนื่องจาก card XDO-7686 | XDO-7745 หลักจากที่ได้มีการอัพเกรด Storage Account ให้เป็น ADLS Gen2 แล้ว ดังนั้นจึงทำให้ความสามารถของ Storage Account นั้นเพิ่มขึ้นมาอีก นั้นจึงทำให้ private endpoint ชนิดเดิมที่มีอยู่นั้นไม่เพียงพอในการใช้งาน จึงต้องทำการเพิ่ม Endpoint ชนิด DFS เข้าไปเพื่อทำให้ใช้งาน ADLS Gen2 ได้เต็มประสิทธิภาพมากยิ่งขึ้น
 \end{itemize}
 
 \subsection{\ifenglish Develop Task\else งาน Develop\fi}
@@ -86,6 +88,8 @@
             งานนี้เเป็น Request จาก Dev ที่มีปัญหาก่อนการ Deploy Production ว่าต้องการ Jenkins Pipeline ซักตัวหนึ่งที่ใช้ในการ Check Config ของ Microservcice ใน Release นั้น ๆ ที่กำลังจะ Deploy ว่าได้มีการ Config ถูกต้องหรือไม่ โดยที่ Config ที่ต้องการ Check นั้นจะเป็น Config ที่เกี่ยวข้องกับ Azure Databrick ซึ่งเป็น Service ที่ใช้ในการทำงานกับ Big Data ซึ่ง Config file นั้นมีอยู๋หลากหลายรูปแบบไม่ว่าจะเป็น YAML, JSON ซึ่งนั้นก็เป็นความถ้าทายของผมที่จะต้องทำให้ Check ได้ทุกรูปแบบไฟล์ โดยที่ Logic การเช็คจะเขียนด้วย Python และจะต้องทำงานผ่าน Jenkins ดังนั้นก็จะต้องมีการเขียน Jenkins Pipelien ขึ้นมาด้วยนั้นเอง
       \item \textbf{XDO-7880:} Fix wrong variable and IAC definition to ADF Trigger catalog\\
             เนื่องจากในแต่ละ Terraform Module นั้นจะต้องมีการเขียน Documentation ของ Module นั้นๆ ปัญหาที่เจอก็คือ Module มีการ Update ไปมากแล้วแต่ Documentation ไม่ได้ Update ตามไปจึงทำให้ผู้ที่ใช้งาน Module เกิดความสับสนในการใช้งาน ซึ่งงานนี้จึงเป็นการ Update Documentation ของ Module ให้สอดคล้องกับ Module ที่ Update ล่าสุด
+      \item \textbf{XDO-7921:} Fix bug ADF catalog issue can't provision with user managed identity\\
+            งานนี้เป็นการค้นหา Bug ที่ทำให้การพัฒนา Catalog ที่ทำการเรียกใช้ Module กลางของ CCOE นั้นไม่สามารทำการ terratest (Unit test ของ Terraform) ได้ สาเหตุก็เนื่องมาจากการปรับเปลี่ยนการใช้งานของ Catalog ที่ไม่สอดคล้องกับ Module หลัก
 \end{itemize}
 
 \subsection{\ifenglish POC\else งาน Prove Of Concept\fi}
