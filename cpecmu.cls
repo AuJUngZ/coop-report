@@ -166,7 +166,7 @@
 \newcommand{\@projectNo}{??}
 \newcommand{\projectNo}[1]{\renewcommand{\@projectNo}{#1}}
 
-\newcommand{\@titleTH}{ชื่อโครงงาน}
+\newcommand{\@titleTH}{ชื่อรายงาน}
 \newcommand{\@titleEN}{Project Name}
 \newcommand{\titleTH}[1]{\renewcommand{\@titleTH}{#1}}
 \newcommand{\titleEN}[1]{\renewcommand{\@titleEN}{#1}}
@@ -241,7 +241,8 @@
     \begin{center}%
       \hrule height 0.5in width 0pt % force vertical space at top
       \@titlesize\bf
-      โครงงานเลขที่ \@degreefieldAbbrTH~\@projectNo/\@acadyearBE
+      % รายงานเลขที่ \@degreefieldAbbrTH~\@projectNo/\@acadyearBE
+      รายงาน
       \par\vspace*{0.5in}\par
       เรื่อง
       \par\vspace*{0.5in}\par
@@ -256,10 +257,10 @@
       }%
       \vfill
       \ifproject%
-        โครงงานนี้ \\
+        รายงานนี้ \\
         เป็นส่วนหนึ่งของการศึกษาตามหลักสูตรปริญญาวิศวกรรมศาสตรบัณฑิต \\
       \else%
-        รายงานนี้เป็นส่วนหนึ่งของวิชาสำรวจเพื่อโครงงาน \\
+        รายงานนี้เป็นส่วนหนึ่งของวิชาสำรวจเพื่อรายงาน \\
         ตามหลักสูตรปริญญาวิศวกรรมศาสตรบัณฑิต \\
       \fi
       ภาควิชาวิศวกรรมคอมพิวเตอร์ \\
@@ -378,7 +379,7 @@
 \newcommand{\@summaryTH}{%
   \setlength\parindent{0pt}
   \begin{tabularx}{\linewidth}{@{}l@{\quad: }X@{}}
-    หัวข้อโครงงาน & \@titleTH \\
+    หัวข้อรายงาน & \@titleTH \\
     & \@titleEN \\
     โดย &
     \begin{tabular}[t]{@{}ll@{}}
@@ -426,7 +427,7 @@
   \par\vspace*{1cm}\par
   \ifcpe%
     ภาควิชาวิศวกรรมคอมพิวเตอร์ คณะวิศวกรรมศาสตร์ มหาวิทยาลัยเชียงใหม่
-    ได้อนุมัติให้โครงงานนี้เป็นส่วน\-หนึ่งของการศึกษาตามหลักสูตรปริญญาวิศวกรรมศาสตรบัณฑิต
+    ได้อนุมัติให้รายงานนี้เป็นส่วน\-หนึ่งของการศึกษาตามหลักสูตรปริญญาวิศวกรรมศาสตรบัณฑิต
     (สาขา\@degreefieldTH)
   \else%
     The Department of Computer Engineering, Faculty of Engineering,
@@ -442,20 +443,28 @@
     \end{tabular}
   \end{flushright}
   \par\bigskip\par
-  \ifcpe คณะกรรมการสอบโครงงาน\else Project examination committee:\fi
+  \ifcpe คณะกรรมการสอบรายงาน\else Project examination committee:\fi
+  % \begin{flushright}
+  %   \begin{tabular}{@{}cl@{}}
+  %     \\[1cm]
+  %     \makebox[3.5in]{\dotfill} &
+  %       \ifcpe ประธานกรรมการ\else Main advisor / Chair\fi \\
+  %     (\ifcpe\@advisorTH\else\@advisorEN\fi)
+  %     \setcounter{@committeeIdx}{0}%
+  %     \@listcommittee{\ifcpe TH\else EN\fi}{\\[1cm]
+  %       \makebox[3.5in]{\dotfill} & \ifcpe กรรมการ\else Committee member\fi \\
+  %       (}
+  %     {)}%
+  %   \end{tabular}
+  % \end{flushright}
   \begin{flushright}
     \begin{tabular}{@{}cl@{}}
       \\[1cm]
-      \makebox[3.5in]{\dotfill} &
-        \ifcpe ประธานกรรมการ\else Main advisor / Chair\fi \\
+      \makebox[3.5in]{\dotfill} & \ifcpe อาจารย์ที่ปรึกษาสหกิจศึกษา\else Main advisor / Chair\fi \\
       (\ifcpe\@advisorTH\else\@advisorEN\fi)
-      \setcounter{@committeeIdx}{0}%
-      \@listcommittee{\ifcpe TH\else EN\fi}{\\[1cm]
-        \makebox[3.5in]{\dotfill} & \ifcpe กรรมการ\else Committee member\fi \\
-        (}
-      {)}%
+      \\[1cm]
     \end{tabular}
-  \end{flushright}
+\end{flushright}
   \egroup
 }
 \newcommand\@abstract@begin[2]{%
