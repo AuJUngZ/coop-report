@@ -242,11 +242,15 @@
       \hrule height 0.5in width 0pt % force vertical space at top
       \@titlesize\bf
       % รายงานเลขที่ \@degreefieldAbbrTH~\@projectNo/\@acadyearBE
-      รายงาน
+      รายงานการปฏิบัติงานสหกิจศึกษา
       \par\vspace*{0.5in}\par
       เรื่อง
       \par\vspace*{0.5in}\par
       \@titleTH
+      \par\vspace*{0.5in}\par
+      ณ บริษัท เอสซีบี เทคเอกซ์ จำกัด\\
+      19 อาคารไทยพาณิชย์ ปาร์ค พลาซ่า เวสท์ บี ชั้นที่ 21 \\
+      ถนนรัชดาภิเษก แขวงจตุจักร เขตจตุจักร กรุงเทพมหานคร 10900
       \par\vspace*{0.75in}\par
       โดย
       \par\vspace*{0.75in}\par
@@ -257,8 +261,9 @@
       }%
       \vfill
       \ifproject%
-        รายงานนี้ \\
-        เป็นส่วนหนึ่งของการศึกษาตามหลักสูตรปริญญาวิศวกรรมศาสตรบัณฑิต \\
+        % รายงานนี้ \\
+        % เป็นส่วนหนึ่งของการศึกษาตามหลักสูตรปริญญาวิศวกรรมศาสตรบัณฑิต \\
+        รายงานนี้เป็นส่วนหนึ่งของกระบวนวิชา 261495 สหกิจศึกษา\\
       \else%
         รายงานนี้เป็นส่วนหนึ่งของวิชาสำรวจเพื่อรายงาน \\
         ตามหลักสูตรปริญญาวิศวกรรมศาสตรบัณฑิต \\
@@ -275,9 +280,13 @@
     \begin{center}%
       \hrule height 0.5in width 0pt % force vertical space at top
       \@titlesize\bf
-      PROJECT No. \@degreefieldAbbrEN~\@projectNo/\@acadyearBE
+      % PROJECT No. \@degreefieldAbbrEN~\@projectNo/\@acadyearBE
+      Cooperative Education Report
       \par\vspace*{1in}\par
       \@titleEN
+      \par\vspace*{0.5in}\par
+      19 SCB Park Plaza West B, 21st Floor, \\
+      Ratchadapisek Road, Chatuchak Sub-district, Chatuchak District, Bangkok 10900
       \par\vspace*{1.5in}\par
       {\@authorsize%
       \begin{tabular}{@{}cl@{}}
@@ -285,17 +294,28 @@
       \end{tabular}%
       }%
       \vfill
+      % \ifproject%
+      %   A Project Submitted in Partial Fulfillment of Requirements \\
+      %   for the Degree of Bachelor of Engineering \\
+      % \else%
+      %   A Report Submitted in Partial Fulfillment of Project Survey Course \\
+      %   as Required by the Degree of Bachelor of Engineering \\
+      % \fi
+      % Department of Computer Engineering \\
+      % Faculty of Engineering \\
+      % Chiang Mai University \\
+      % \@acadyearAD
       \ifproject%
-        A Project Submitted in Partial Fulfillment of Requirements \\
-        for the Degree of Bachelor of Engineering \\
+        % This report \\
+        % is part of the Bachelor of Engineering curriculum \\
+        This report is part of the course 261495 Cooperative Education\\
       \else%
-        A Report Submitted in Partial Fulfillment of Project Survey Course \\
-        as Required by the Degree of Bachelor of Engineering \\
+        This report is part of the survey course \\
+        in the Bachelor of Engineering curriculum \\
       \fi
       Department of Computer Engineering \\
-      Faculty of Engineering \\
-      Chiang Mai University \\
-      \@acadyearAD
+      Faculty of Engineering, Chiang Mai University \\
+      Academic Year~\@acadyearBE
     \end{center}
     \vspace{0.25in}
   \end{titlepage}
@@ -436,7 +456,11 @@
   \fi
   \begin{flushright}
     \begin{tabular}{@{}cl@{}}
-      \\[1cm]
+      \\[0.5cm]
+      \makebox[3.5in]{\dotfill} &
+        คณบดีคณะวิศวกรรมศาสตร์ \\
+      (รองศาสตราจารย์.ดร.ธงชัย ฟองสมุทร)
+      \\[1.5cm]
       \makebox[3.5in]{\dotfill} &
         \ifcpe หัวหน้าภาควิชาวิศวกรรมคอมพิวเตอร์\else Department chair\fi\\
       (\ifcpe\@deptChairTH\else\@deptChairEN\fi)
@@ -463,6 +487,13 @@
       \makebox[3.5in]{\dotfill} & \ifcpe อาจารย์ที่ปรึกษาสหกิจศึกษา\else Main advisor / Chair\fi \\
       (\ifcpe\@advisorTH\else\@advisorEN\fi)
       \\[1cm]
+      \makebox[3.5in]{\dotfill} & พนักงานที่ปรึกษา \\
+      (พีรวัตร อยู่ใจเย็น)\\
+      (Senior DevOps Engineer)
+      \\[1cm]
+      \makebox[3.5in]{\dotfill} & พนักงานที่ปรึกษา \\
+      (ภัทรพล หมวกมณี)\\
+      (Software Engineer)
     \end{tabular}
 \end{flushright}
   \egroup

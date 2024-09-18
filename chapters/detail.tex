@@ -2,7 +2,7 @@
 
 \setcounter{secnumdepth}{3}
 
-\chapter{\ifenglish Cooperative Details\else รายเอียดการไปสหกิจศึกษา\fi}
+\chapter{\ifenglish Cooperative Details\else รายละเอียดเกี่ยวกับการทำงาน\fi}
 
 
 \section{\ifenglish Foundation of DevOps\else ปรับความรู้พื้นฐานของการเป็น DevOps\fi}
@@ -90,8 +90,11 @@
             เนื่องจากในแต่ละ Terraform Module นั้นจะต้องมีการเขียน Documentation ของ Module นั้นๆ ปัญหาที่เจอก็คือ Module มีการ Update ไปมากแล้วแต่ Documentation ไม่ได้ Update ตามไปจึงทำให้ผู้ที่ใช้งาน Module เกิดความสับสนในการใช้งาน ซึ่งงานนี้จึงเป็นการ Update Documentation ของ Module ให้สอดคล้องกับ Module ที่ Update ล่าสุด
       \item \textbf{XDO-7921:} Fix bug ADF catalog issue can't provision with user managed identity\\
             งานนี้เป็นการค้นหา Bug ที่ทำให้การพัฒนา Catalog ที่ทำการเรียกใช้ Module กลางของ CCOE นั้นไม่สามารทำการ terratest (Unit test ของ Terraform) ได้ สาเหตุก็เนื่องมาจากการปรับเปลี่ยนการใช้งานของ Catalog ที่ไม่สอดคล้องกับ Module หลัก
+      \item \textbf{XDO-7930:} Update ADF trigger document align with SCB requirement\\
+            อัพเดท Document ของ ADF Trigger ให้สอดคล้องกับ Requirement ของ SCB เนื่องจากหลังการประชุมได้มีการตกลง standard ของการ Deploy trigger ขึ้นมาใหม่
+      \item \textbf{XDO-7940:} Update ADF trigger document align with SCB requirement\\
+            สืบเนื่องจากการ์ดหมายเลข XDO-7483 และ XDO-7484 หลังจากที่พัฒนา Terraform Module เหล่านั้นเสร็จสิ้น ต่อมาก็จะเป็นการเริิ่มทำ migration เพื่อย้ายมาใช้ของใหม่แทนที่ของเดิมที่มีปัญหาเรื่องความยากในการจัดการ
 \end{itemize}
-
 \subsection{\ifenglish POC\else งาน Prove Of Concept\fi}
 \begin{itemize}
       \item \textbf{XDO-7423:} POC ADF Storage Event Trigger Over SFTP\\
