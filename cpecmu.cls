@@ -493,7 +493,7 @@
       \\[1cm]
       \makebox[3.5in]{\dotfill} & พนักงานที่ปรึกษา \\
       (ภัทรพล หมวกมณี)\\
-      (Software Engineer)
+      (DevOps Engineer)
     \end{tabular}
 \end{flushright}
   \egroup
