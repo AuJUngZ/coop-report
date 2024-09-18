@@ -105,6 +105,8 @@
             งานนี้เป็นการหาวิธีการแก้ไขปัญหาให้กับทาง DevOps ของ SCB โดยปัญหาคือทางทีมของ SCB ไม่ต้องการที่จะใช้ Terraform ในการ Manage Trigger ของ ADF และเลิอกที่จะใช้ ARM Template แทน ด้วยเหตุนี้เองผมซึ่งดูแลงานนี้จึงต้องทำการหาวิธีการในการสร้าง Trigger ให้กับ ADF ผ่าน ARM Template และจะต้องทำ Documentation ของวิธีการใช้งานด้วย และผลลัพธ์ออกมาเป็นสิ่งที่น่าพึงพอใจทำให้วิธีการนี้ถูกนำไปเป็น Standart ให้กับหลายๆโปรเจคสืบต่อไปอย่างเช่น Payment Domain Project ก็จะใช้วิธีการนี้ในการสร้าง Trigger ของ ADF ด้วย
       \item \textbf{XDO-7784:} POC about dataset reference to use in ADF pipeline.\\
             สืบเนื่องจาก XDO-7744 ทางทีมที่ได้ลองใช้งานก็เกิดคำถามขึ้นมาว่าหากใช้งาน ARM Template ในการ Deploy Component อื่น ๆ ของ ADF ได้ไหม โดยที่ตัวหลักๆที่ต้องการใช้งานนั้นคือ Dataset ซึ่ง Dataset นั้นจะต้องมีการ Reference กับ Linked Services ที่เป็น Config ของการเชื่อมต่อกับ Data Source ดังนั้นงานนี้จึงเป็นการหาวิธีการในการสร้าง Dataset ที่สามารถ Reference กับ Linked Services ได้โดยที่ไม่ต้องใส่ Config ของ Linked Services ลงใน Dataset โดยตรง ซึ่งเป็นเรื่องที่สำคัญในการทำงานของ ADF ที่มีขนาดใหญ่
+      \item \textbf{XDO-7949:} CBS-MCR | Request to test provisioning SSIS with UMI\\
+            เนื่องจาก Project Manager ของ CBS Project ต้องการวิธีการในการทำงานกับ SSIS ที่ต้องใช้ User Managed Identity ในการ Login แทนการใช้ Username และ Password ซึ่งเป็นเรื่องที่สำคัญในการทำงานกับ Database ที่มีขนาดใหญ่ ดังนั้นงานนี้จึงเป็นการทดสอบการใช้งาน SSIS ที่ใช้ User Managed Identity ในการ Login โดยที่การทดสอบนั้นจะต้องทำการเชื่อมต่อกับ Database ที่อยู่ใน Private Network ด้วย
 \end{itemize}
 
 \section{\ifenglish Benefit\else สวัสดิการที่ได้รับ\fi}
