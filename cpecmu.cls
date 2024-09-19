@@ -315,7 +315,7 @@
       \fi
       Department of Computer Engineering \\
       Faculty of Engineering, Chiang Mai University \\
-      Academic Year~\@acadyearBE
+      Academic Year~\@acadyearAD
     \end{center}
     \vspace{0.25in}
   \end{titlepage}
