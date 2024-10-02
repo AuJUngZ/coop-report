@@ -72,6 +72,9 @@
             งานนี้เป็นงานที่ต้องทำการ Destroy Resource ที่ไม่ได้ใช้งานอยู่ใน Environment ของ Project ต่าง ๆ ซึ่งเป็นเรื่องที่สำคัญในการลด Cost ของ Project และเป็นเรื่องที่ต้องทำอย่างสม่ำเสมอเพื่อไม่ให้เกิดปัญหาในการใช้งานของ Project ในอนาคต ซึ่งระหว่างการทำงานก็มีปัญหาเกิดขึ้น เรื่องจาก Terraform Provider ที่เราใช้นั้นมีการอัพเดท version ซึ่งทำให้ Module ที่เคยเขียนไว้ใน version ที่เก่ากว่าใช้งานไม่ได้ทำให้จะต้องมีการทำงานในการ Upgrade Module ที่เก่าให้ใช้งานได้กับ version ใหม่ก่อนทำการ Destroy Resource
       \item \textbf{XDO-7909:} CBS-SunCBS | Request to add more endpoint of DFS to SunCBS storage account\\
             สืบเนื่องจาก card XDO-7686 | XDO-7754 หลักจากที่ได้มีการอัพเกรด Storage Account ให้เป็น ADLS Gen2 แล้ว ดังนั้นจึงทำให้ความสามารถของ Storage Account นั้นเพิ่มขึ้นมาอีก นั้นจึงทำให้ private endpoint ชนิดเดิมที่มีอยู่นั้นไม่เพียงพอในการใช้งาน จึงต้องทำการเพิ่ม Endpoint ชนิด DFS เข้าไปเพื่อทำให้ใช้งาน ADLS Gen2 ได้เต็มประสิทธิภาพมากยิ่งขึ้น
+      \item \textbf{XDO-8124:} CBS-MCR | Request to provisioning Azure Resource to support SSIS on DEV01 and QA01\\
+            สืบเนื่องจาก XDO-7844 ที่ได้มาการขอให้สร้าง SSIS ขึ้นมาเพื่อ POC การทำ Data Sync ระหว่าง Database on Cloud กับ On Premise หลังจากทีม Dev ได้ลองใช้งานแล้วพบว่าสามารถใช้งานได้ดี จึงต้องการที่จะทำมาใช้งานจริง ๆ ดังนั้นจึงได้มีการของให้ทาง DevOps Provision SSIS ให้กับ Environment ที่จะใช้งานจริง ๆ คือ DEV01 และ QA01
+            
 \end{itemize}
 
 \subsection{\ifenglish Develop Task\else งาน Develop\fi}
