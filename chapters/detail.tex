@@ -18,13 +18,10 @@
       \item \textbf{ELK Stack}: ระบบสำหรับการจัดการและวิเคราะห์ข้อมูล Logging เพื่อช่วยในการตรวจสอบและวิเคราะห์ปัญหาในระบบ
 \end{itemize}
 
-ทั้งนี้การศึกษาหัวข้อเหล่านี้มีระยะเวลาประมาณ 2-4 สัปดาห์ และท้ายสุดจะต้องมีการนำเสนอสิ่งที่ได้เรียนรู้
+ทั้งนี้การศึกษาหัวข้อเหล่านี้มีระยะเวลาประมาณ 2-4 สัปดาห์ และในท้ายที่สุดจะต้องมีการนำเสนอสิ่งที่ได้เรียนรู้
 ให้กับพี่ ๆ ในทีมได้ฟังและประเมิณว่าพร้อมที่จะทำงานจริงหรือไม่ อย่างไรก็ตามรายละเอียดในหัวข้อย่อยต่าง ๆ หลังจากนี้จะเป็นการนำเสนอสิ่งที่ได้เรียนรู้และได้นำมาประยุกต์ใช้ในการทำงานจริง
 ส่วนหัวข้อนอกเหนือจากที่จะกล่าวถึงก็สำคัญไม่น้อยเช่นกันแต่จะข้อนำเสนอ Documentation ที่ได้ทำสรุปการเรียนรู้มาแล้วนั้นในส่วนภาคผนวก
 
-% \import{chapters/detail_sections}{docker.tex}
-% \clearpage
-% \import{chapters/detail_sections}{kube.tex}
 \clearpage
 \import{chapters/detail_sections}{jenkins.tex}
 \clearpage
@@ -67,20 +64,24 @@
       \item \textbf{XDO-7686 | XDO-7754:} CBS-SunCBS | Asssement of changing Storage account ADLS Gen2\\
             งานนี้คือการเปลี่ยน Version ของ Storage Account จาก General ไปเป็น ADLS Gen2 ซึ่งเป็นการเปลี่ยนแปลงที่สำคัญเพื่อเพิ่มประสิทธิภาพในการใช้งานของ Storage Account โดยเฉพาะในการใช้งานในส่วนของ Data Lake ซึ่งการเปลี่ยนแปลง Version นั้นจะต้องเกิดการลบและสร้างขึ้นมาใหม่ทั้งหมดดังนั้นก่อนเริ่มดำเนินการจะต้องมีการ Approve จาก Dev ต้นทางซึ่งเป็นเจ้าของข้อมูลที่อยู่ใน Storage Account นั้น และงานลักษณะนี้จะต้องทำในหลายๆ Environment เช่นกัน
       \item \textbf{XDO-7844:} CBS-MCR | Provisioning resource to support POC SSIS\\
-            สืบเนื่องมาจากทางทีม Dev มีเป้าหมายที่จะเปลี่ยงแปลงการ Sync ของมูลของ Database ซึ่งมีอยู่จำนวนมากทั้ง On Cloud และ On Premise ซึ่งก่อนหน้านั้นใช้ Db Sync service ที่ Azure ให้มาแต่ด้วยที่มี Database หลายตัวจึงทำให้เกิดปัญหาในการใช้งาน จึงจำเป็นต้องหา Solution ใหม่ๆ โดยที่การใช้ SSIS ก็เป็นอีกหนึ่งวิธี ดังนั้นเอง DevOps จึงต้อง Support การสร้าง SSIS ขึ้นมา โดยที่การสร้างนั้นต้องคำนึงถึงเรื่อง Network และ Security ด้วยเนื่องจาก Database แต่ละตัวนั้นอยู่ใน Network ที่แตกต่างกันและเป็น Private Network ด้วย
+            สืบเนื่องมาจากทางทีม Dev มีเป้าหมายที่จะเปลี่ยงแปลงการ Sync ของมูลของ Database ซึ่งมีอยู่จำนวนมากทั้ง On Cloud และ On Premise ซึ่งก่อนหน้านั้นใช้ Db Sync service ที่ Azure ให้มาแต่ด้วยที่มี Database หลายตัวจึงทำให้เกิดปัญหาในการใช้งาน จึงจำเป็นต้องหา Solution ใหม่ ๆ โดยที่การใช้ SSIS ก็เป็นอีกหนึ่งวิธี ดังนั้นเอง DevOps จึงต้อง Support การสร้าง SSIS ขึ้นมา โดยที่การสร้างนั้นต้องคำนึงถึงเรื่อง Network และ Security ด้วยเนื่องจาก Database แต่ละตัวนั้นอยู่ใน Network ที่แตกต่างกันและเป็น Private Network ด้วย
+      \clearpage
       \item \textbf{XDO-7861 | XDO-7862: } Destroy unused resource\\
             งานนี้เป็นงานที่ต้องทำการ Destroy Resource ที่ไม่ได้ใช้งานอยู่ใน Environment ของ Project ต่าง ๆ ซึ่งเป็นเรื่องที่สำคัญในการลด Cost ของ Project และเป็นเรื่องที่ต้องทำอย่างสม่ำเสมอเพื่อไม่ให้เกิดปัญหาในการใช้งานของ Project ในอนาคต ซึ่งระหว่างการทำงานก็มีปัญหาเกิดขึ้น เรื่องจาก Terraform Provider ที่เราใช้นั้นมีการอัพเดท version ซึ่งทำให้ Module ที่เคยเขียนไว้ใน version ที่เก่ากว่าใช้งานไม่ได้ทำให้จะต้องมีการทำงานในการ Upgrade Module ที่เก่าให้ใช้งานได้กับ version ใหม่ก่อนทำการ Destroy Resource
       \item \textbf{XDO-7909:} CBS-SunCBS | Request to add more endpoint of DFS to SunCBS storage account\\
             สืบเนื่องจาก card XDO-7686 | XDO-7754 หลักจากที่ได้มีการอัพเกรด Storage Account ให้เป็น ADLS Gen2 แล้ว ดังนั้นจึงทำให้ความสามารถของ Storage Account นั้นเพิ่มขึ้นมาอีก นั้นจึงทำให้ private endpoint ชนิดเดิมที่มีอยู่นั้นไม่เพียงพอในการใช้งาน จึงต้องทำการเพิ่ม Endpoint ชนิด DFS เข้าไปเพื่อทำให้ใช้งาน ADLS Gen2 ได้เต็มประสิทธิภาพมากยิ่งขึ้น
-      \item \textbf{XDO-8124:} CBS-MCR | Request to provisioning Azure Resource to support SSIS on DEV01 and QA01\\
-            สืบเนื่องจาก XDO-7844 ที่ได้มาการขอให้สร้าง SSIS ขึ้นมาเพื่อ POC การทำ Data Sync ระหว่าง Database on Cloud กับ On Premise หลังจากทีม Dev ได้ลองใช้งานแล้วพบว่าสามารถใช้งานได้ดี จึงต้องการที่จะทำมาใช้งานจริง ๆ ดังนั้นจึงได้มีการของให้ทาง DevOps Provision SSIS ให้กับ Environment ที่จะใช้งานจริง ๆ คือ DEV01 และ QA01
+      \item \textbf{XDO-8124 | XDO-8125:} CBS-MCR | Request to provisioning Azure Resource to support SSIS on DEV01 and QA01\\
+            สืบเนื่องจาก XDO-7844 ที่ได้มาการขอให้สร้าง SSIS ขึ้นมาเพื่อ POC การทำ Data Sync ระหว่าง Database on Cloud กับ On Premise หลังจากทีม Dev ได้ลองใช้งานแล้วพบว่าสามารถใช้งานได้ดี จึงต้องการที่จะทำมาใช้งานจริง ๆ ดังนั้นจึงได้มีการของให้ทาง DevOps Provision SSIS ให้กับ Environment ที่จะใช้งานจริง ๆ คือ DEV01 และ QA01 งานนี้มองในรายละอียดลงไปจะค่อนข้างยากเนื่องจากก่อนหน้าที่เราเคยสร้าง SSIS ขึ้นมานั้นเป็นการใช้ Username Password ในการ Login แต่ในครั้งนี้เนื่องด้วยมาตรฐานความปลอดภัยที่สูงขึ้นจึงต้องใช้ Managed Identity ในการ Login แทน จึงทำให้ต้องมีการทดลองและทดสอบความเป็นไปได้ในการทำ ซึ่งนั้นก็เป็นหน้าที่ของผมเองที่คนที่หาวิธีการใช้งาน Managed Identity ในการ Login และทำให้ SSIS สามารถใช้งานได้
             
 \end{itemize}
 
 \subsection{\ifenglish Develop Task\else งาน Develop\fi}
 \begin{itemize}
       \item \textbf{XDO-7483 | XDO-7484:} [ADF] Convert module from IAC next gen to xplatform multicloud\\
-            งานเป็นงานที่คล้ายๆการ Restructure IaC ของการสร้าง ADF ในโปรเจค Payment Domain ใหม่ทั้งหมดเนื่องจาก Version ปัจจุบันนั้นไม่ได้แยก Module ของแต่ละ Component ของ ADF ออกจากกันซึ่งประกอบด้วย Datafactory, Linked services, Trigger และ Pipeline ส่งผลให้เมื่อมีความต้องการในแก้ไขบางอย่างจะต้องพบเจอกับ Code ประมาณ 10,000 บรรทัด ซึ่งเป็นเรื่องที่ไม่ควรจะเกิดขึ้น ทางทีม DevOps จึงเห็นว่าเรื่องนี้ควรจะแก้ไข ซึ่งงานนี้ผมได้ทำกับพี่เลี้ยงอีกคนหนึ่ง โดยผมรับหน้าที่ในการ Restructure ส่วนของ Linked Services และ Trigger ซึ่งเป็นส่วนที่มีความซับซ้อนมากที่สุด โดยการ Restructure ครั้งนี้อ้างอิง Standard ของ Module จากฝั่ง SCB ที่ทาง DevOps ของ Techx เป็นผู้ Design ขึ้นมา ทั้งหมดใช้เวลาประมาณ 2 สัปดาห์ในการ Implement และ Test
+            งานเป็นงานที่คล้ายๆการ Restructure IaC ของการสร้าง ADF ในโปรเจค Payment Domain ใหม่ทั้งหมดเนื่องจาก Version ปัจจุบันนั้นไม่ได้แยก Module ของแต่ละ Component ของ ADF ออกจากกันซึ่งประกอบด้วย Datafactory, Linked services, Trigger และ Pipeline ส่งผลให้เมื่อมีความต้องการในแก้ไขบางอย่างจะต้องพบเจอกับ Code ประมาณ 10,000 บรรทัด ซึ่งเป็นเรื่องที่ไม่ควรจะเกิดขึ้น ทางทีม DevOps จึงเห็นว่าเรื่องนี้ควรจะแก้ไข ซึ่งงานนี้ผมได้ทำกับพี่เลี้ยงอีกคนหนึ่ง 
+            
+            โดยผมรับหน้าที่ในการ Restructure ส่วนของ Linked Services และ Trigger ซึ่งเป็นส่วนที่มีความซับซ้อนมากที่สุด โดยการ Restructure ครั้งนี้อ้างอิง Standard ของ Module จากฝั่ง SCB ที่ทาง DevOps ของ Techx เป็นผู้ Design ขึ้นมา ทั้งหมดใช้เวลาประมาณ 2 สัปดาห์ในการ Implement และ Test
+      \clearpage
       \item \textbf{XDO-7561 | XDO-7737 | XDO-7742:} CBS-DAP | Enhance Azure Data factory linked services modules\\
             งานนี้เป็นการเพิ่มความสร้างมาของ SFTP Linked Services ใน ADF Modole ของ SCB ให้สามารถไปดึงรหัสผ่านของ SFTP server จาก Azure keyvault ได้ โดยที่ไม่ต้องใส่รหัสผ่านลงใน Config ของ ADF โดยตรง ซึ่งเป็นเรื่องที่สำคัญในการเพิ่มความปลอดภัยในการใช้งานของ ADF และเป็นการเพิ่มความสะดวกในการใช้งานด้วย
 
@@ -116,17 +117,17 @@
 บริษัท SCB TechX ให้ความสำคัญกับเรื่องของสวัสดิการที่ดีให้กับพนักงาน โดยเฉพาะนักศึกษาสหกิจศึกษาที่เข้ามาทำงานในบริษัท
 ถึงแม้จะไม่ได้เป็นพนักงานประจำ แต่ก็ได้รับสวัสดิการที่ดีจากบริษัทอย่างเช่น
 \begin{itemize}
-      \item ทำงาน 5 วัน / สัปดาห์ เข้าบริษัท 2 วัน ตามแต่ละทีมกำหนด และทำงานจากบ้าน 3 วัน
+      \item ทำงาน 5 วัน / สัปดาห์ เข้าบริษัท 2 วัน ตามแต่ละทีมกำหนด และทำงานจากบ้าน 3 วัน \\(09:00 - 18:00)
       \item Bus รับส่ง ไป กลับ ที่สถานีรถไฟฟ้า \& หมอชิต
       \item MacBook Pro ให้ใช้งานตลอดระยะทำงาน ซึ่งจะเป็นเครื่องประจำของคนนั้นๆเลย
       \item อาหารเช้าและน้ำดื่มฟรีทุกวันทำงาน
-      \item Account ของแหล่งเรียนรู้ออนไลน์เช่น Udemy ที่สามารถเรียน Course ไหน ๆ ก็ได้ฟรี
+      \item บัญชีของแหล่งเรียนรู้ออนไลน์เช่น Udemy ที่สามารถเรียน Course ไหน ๆ ก็ได้โดยไม่มีค่าใช้จ่าย
       \item กิจกรรมพัฒนานักศึกษาฝึกงานและสหกิจศึกษาทั้งด้าน Soft Skill และ Hard Skill ตลอดระยะเวลาทำงาน
       \item เบี้ยเลี้ยงในการทำงาน 500 บาท / วันทำงาน (ไม่นับวันลา หรือวันหยุด)
       \item วันหยุดประจำปีตามประเทศไทย และวันหยุดพิเศษตามประเทศไทย
       \item ประกันชีวิต และประกันอุบัติเหตุ
             \begin{itemize}
-                  \item ประกันชีวิต 100,000 บาท
+                  \item ประกันชีวิต 150,000 บาท
                   \item ค่าประกันอุบัติเหตุ 5,000 บาท
             \end{itemize}
 \end{itemize}
