@@ -60,7 +60,7 @@
                   \item CosmosDB
                   \item Key vault
             \end{itemize}
-            ซึ่ง Spec ของแต่ละรายการจะถูกกำหนดไว้ใน Jira Card นั้น ๆ และการสร้าง Resource ทุกอย่างนี้จะต้องผ่านการใช้ Terraform และมจะีลำดับการสร้างเพื่อไม่ให้เกิด Conflict ในการสร้าง Resource ดังนั้นเองงานนี้จึงต้องมีความเข้าใจและรอบคอบในการทำงาน
+            ซึ่ง Spec ของแต่ละรายการจะถูกกำหนดไว้ใน Jira Card นั้น ๆ และการสร้าง Resource ทุกอย่างนี้จะต้องผ่านการใช้ Terraform และจะมีลำดับการสร้างเพื่อไม่ให้เกิด Conflict ในการสร้าง Resource ดังนั้นเองงานนี้จึงต้องมีความเข้าใจและรอบคอบในการทำงาน
       \item \textbf{XDO-7686 | XDO-7754:} CBS-SunCBS | Asssement of changing Storage account ADLS Gen2\\
             งานนี้คือการเปลี่ยน Version ของ Storage Account จาก General ไปเป็น ADLS Gen2 ซึ่งเป็นการเปลี่ยนแปลงที่สำคัญเพื่อเพิ่มประสิทธิภาพในการใช้งานของ Storage Account โดยเฉพาะในการใช้งานในส่วนของ Data Lake ซึ่งการเปลี่ยนแปลง Version นั้นจะต้องเกิดการลบและสร้างขึ้นมาใหม่ทั้งหมดดังนั้นก่อนเริ่มดำเนินการจะต้องมีการ Approve จาก Dev ต้นทางซึ่งเป็นเจ้าของข้อมูลที่อยู่ใน Storage Account นั้น และงานลักษณะนี้จะต้องทำในหลายๆ Environment เช่นกัน
       \item \textbf{XDO-7844:} CBS-MCR | Provisioning resource to support POC SSIS\\
@@ -71,7 +71,7 @@
       \item \textbf{XDO-7909:} CBS-SunCBS | Request to add more endpoint of DFS to SunCBS storage account\\
             สืบเนื่องจาก card XDO-7686 | XDO-7754 หลักจากที่ได้มีการอัพเกรด Storage Account ให้เป็น ADLS Gen2 แล้ว ดังนั้นจึงทำให้ความสามารถของ Storage Account นั้นเพิ่มขึ้นมาอีก นั้นจึงทำให้ private endpoint ชนิดเดิมที่มีอยู่นั้นไม่เพียงพอในการใช้งาน จึงต้องทำการเพิ่ม Endpoint ชนิด DFS เข้าไปเพื่อทำให้ใช้งาน ADLS Gen2 ได้เต็มประสิทธิภาพมากยิ่งขึ้น
       \item \textbf{XDO-8124 | XDO-8125:} CBS-MCR | Request to provisioning Azure Resource to support SSIS on DEV01 and QA01\\
-            สืบเนื่องจาก XDO-7844 ที่ได้มาการขอให้สร้าง SSIS ขึ้นมาเพื่อ POC การทำ Data Sync ระหว่าง Database on Cloud กับ On Premise หลังจากทีม Dev ได้ลองใช้งานแล้วพบว่าสามารถใช้งานได้ดี จึงต้องการที่จะทำมาใช้งานจริง ๆ ดังนั้นจึงได้มีการของให้ทาง DevOps Provision SSIS ให้กับ Environment ที่จะใช้งานจริง ๆ คือ DEV01 และ QA01 งานนี้มองในรายละอียดลงไปจะค่อนข้างยากเนื่องจากก่อนหน้าที่เราเคยสร้าง SSIS ขึ้นมานั้นเป็นการใช้ Username Password ในการ Login แต่ในครั้งนี้เนื่องด้วยมาตรฐานความปลอดภัยที่สูงขึ้นจึงต้องใช้ Managed Identity ในการ Login แทน จึงทำให้ต้องมีการทดลองและทดสอบความเป็นไปได้ในการทำ ซึ่งนั้นก็เป็นหน้าที่ของผมเองที่คนที่หาวิธีการใช้งาน Managed Identity ในการ Login และทำให้ SSIS สามารถใช้งานได้
+            สืบเนื่องจาก XDO-7844 ที่ได้มาการขอให้สร้าง SSIS ขึ้นมาเพื่อ POC การทำ Data Sync ระหว่าง Database on Cloud กับ On Premise หลังจากทีม Dev ได้ลองใช้งานแล้วพบว่าสามารถใช้งานได้ดี จึงต้องการที่จะทำมาใช้งานจริง ๆ ดังนั้นจึงได้มีการของให้ทาง DevOps Provision SSIS ให้กับ Environment ที่จะใช้งานจริง ๆ คือ DEV01 และ QA01 งานนี้มองในรายละเอียดลงไปจะค่อนข้างยากเนื่องจากก่อนหน้าที่เราเคยสร้าง SSIS ขึ้นมานั้นเป็นการใช้ Username Password ในการ Login แต่ในครั้งนี้เนื่องด้วยมาตรฐานความปลอดภัยที่สูงขึ้นจึงต้องใช้ Managed Identity ในการ Login แทน จึงทำให้ต้องมีการทดลองและทดสอบความเป็นไปได้ในการทำ ซึ่งนั้นก็เป็นหน้าที่ของผมเองที่คนที่หาวิธีการใช้งาน Managed Identity ในการ Login และทำให้ SSIS สามารถใช้งานได้
             
 \end{itemize}
 
@@ -97,12 +97,12 @@
       \item \textbf{XDO-7930:} Update ADF trigger document align with SCB requirement\\
             อัพเดท Document ของ ADF Trigger ให้สอดคล้องกับ Requirement ของ SCB เนื่องจากหลังการประชุมได้มีการตกลง standard ของการ Deploy trigger ขึ้นมาใหม่
       \item \textbf{XDO-7940:} Update ADF trigger document align with SCB requirement\\
-            สืบเนื่องจากการ์ดหมายเลข XDO-7483 และ XDO-7484 หลังจากที่พัฒนา Terraform Module เหล่านั้นเสร็จสิ้น ต่อมาก็จะเป็นการเริิ่มทำ migration เพื่อย้ายมาใช้ของใหม่แทนที่ของเดิมที่มีปัญหาเรื่องความยากในการจัดการ
+            สืบเนื่องจากการ์ดหมายเลข XDO-7483 และ XDO-7484 หลังจากที่พัฒนา Terraform Module เหล่านั้นเสร็จสิ้น ต่อมาก็จะเป็นการเริ่มทำ migration เพื่อย้ายมาใช้ของใหม่แทนที่ของเดิมที่มีปัญหาเรื่องความยากในการจัดการ
 \end{itemize}
 \subsection{\ifenglish POC\else งาน Prove Of Concept\fi}
 \begin{itemize}
       \item \textbf{XDO-7423:} POC ADF Storage Event Trigger Over SFTP\\
-            งานนี้ทางทีม Dev ได้ถามาทางทีม DevOps มาว่า Trigger ชนิด Blob Event trigger ใน ADF นั้นสามารถ trigger เมื่อมี File อัพโหลดผ่าน SFTP เข้าไปได้หรือไม่ ซึงผมเองได้รับหน้าที่ในการหาคำตอบเรื่องนี้จีงได้ตอบมาว่า สามารถทำงานได้แต่ไม่ใช่ Solution ที่ทาง Microsoft ให้มา แต่จะเป็นการ Custom Header Parameter บางตัวเข้าไปใน Trigger เพื่อทำให้ Trigger เองสามารถตัวจับ Event ที่มาจาก SFTP ได้
+            งานนี้ทางทีม Dev ได้ถามาทางทีม DevOps มาว่า Trigger ชนิด Blob Event trigger ใน ADF นั้นสามารถ trigger เมื่อมี File อัพโหลดผ่าน SFTP เข้าไปได้หรือไม่ ซึงผมเองได้รับหน้าที่ในการหาคำตอบเรื่องนี้จีงได้ตอบมาว่า สามารถทำงานได้แต่ไม่ใช่ Solution ที่ทาง Microsoft ให้มา แต่จะเป็นการ Custom Header Parameter บางตัวเข้าไปใน Trigger เพื่อทำให้ Trigger เองสามารถตรวจจับ Event ที่มาจาก SFTP ได้
       \item \textbf{XDO-7743:} CBS-SunCBS | Research on Entra ID with CosmosDB for PostgreSQL\\
             งานนี้เป็น Research หาข้อมูลและวิธีการใช้งาน Feature ใหม่ของ Cosmos DB ที่ทาง Microsoft ปล่อยออกมาให้ได้ใช้งาน โดยที่ Feature หลักๆนั้นคือการทำให้ Entra ID ภายใน Azure สามารถที่จะ Connect กับ Cosmos DB ที่ใช้เป็น PostgreSQL ได้ ซึ่งเป็น Feature ที่สำคัญในการทำงานกับ Database ที่มีขนาดใหญ่ เพราะหากสามารถปรับใช้กับโปรเจคได้จะทำให้การทำงานง่ายมากยิ่งขึ้นไม่จำเป็นต้องใช้ Username และ Password ในการเชื่อมต่อกับ Database อีกต่อไป
       \item \textbf{XDO-7744 | XDO-7760:} [CBS] | POC Dynamic create trigger via ARM Template and Documentation\\
