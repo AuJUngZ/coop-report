@@ -239,7 +239,12 @@
 \newcommand{\@maketitleTH}{%
   \begin{titlepage}%
     \begin{center}%
-      \hrule height 0.5in width 0pt % force vertical space at top
+      % \hrule height 0.5in width 0pt % force vertical space at top
+      \begin{figure}[ht]
+        \begin{center}
+            \includegraphics[scale=1]{images/cmu.png}
+        \end{center}
+      \end{figure}
       \@titlesize\bf
       % รายงานเลขที่ \@degreefieldAbbrTH~\@projectNo/\@acadyearBE
       รายงานการปฏิบัติงานสหกิจศึกษา
@@ -278,7 +283,12 @@
 \newcommand{\@maketitleEN}{%
   \begin{titlepage}%
     \begin{center}%
-      \hrule height 0.5in width 0pt % force vertical space at top
+      % \hrule height 0.5in width 0pt % force vertical space at top
+      \begin{figure}[ht]
+        \begin{center}
+            \includegraphics[scale=1]{images/cmu.png}
+        \end{center}
+      \end{figure}
       \@titlesize\bf
       % PROJECT No. \@degreefieldAbbrEN~\@projectNo/\@acadyearBE
       Cooperative Education Report
