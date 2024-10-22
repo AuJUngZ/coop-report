@@ -498,12 +498,12 @@
       (\ifcpe\@advisorTH\else\@advisorEN\fi)
       \\[1cm]
       \makebox[3.5in]{\dotfill} & พนักงานที่ปรึกษา \\
-      (พีรวัตร อยู่ใจเย็น)\\
-      (Senior DevOps Engineer)
+      (สุมนา ว่องรัตนะกุล)\\
+      (DevOps Manager)
       \\[1cm]
-      \makebox[3.5in]{\dotfill} & พนักงานที่ปรึกษา \\
-      (ภัทรพล หมวกมณี)\\
-      (DevOps Engineer)
+      % \makebox[3.5in]{\dotfill} & พนักงานที่ปรึกษา \\
+      % (ภัทรพล หมวกมณี)\\
+      % (DevOps Engineer)
     \end{tabular}
 \end{flushright}
   \egroup
